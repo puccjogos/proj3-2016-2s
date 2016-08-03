@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../imgs/shuffling.gif">
+        
+
+	<title>Introdução à arquitetura de software - Proj3 - 2016 - 2S</title>
+
+        <link href="../../css/bootstrap-3.0.3.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Proj3 - 2016 - 2S</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Aulas <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../introd-proj3/">Introdução ao Projeto Integrado 3</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">Introdução à arquitetura de software</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../referencias/">Referências</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../introd-proj3/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../referencias/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/puccjogos/proj3-2016-2s">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#introducao-a-arquitetura-de-software">Introdução à arquitetura de software</a></li>
+        
+            <li><a href="#requisitos">Requisitos</a></li>
+        
+            <li><a href="#arquitetura">Arquitetura</a></li>
+        
+            <li><a href="#processo-de-design-de-software">Processo de design de software</a></li>
+        
+            <li><a href="#referencias">Referências</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h2 id="introducao-a-arquitetura-de-software">Introdução à arquitetura de software</h2>
+<p>Ou &ldquo;Dicas para organizar um projeto de software&rdquo;.</p>
+<h3 id="requisitos">Requisitos</h3>
+<p>O objetivo de definir requisitos de qualidade é diminuir os riscos durante o desenvolvimento de um software, evitando ter de corrigir erros no final do projeto (onde esses erros são mais caros).</p>
+<h4 id="checklist-para-avaliar-requisitos">Checklist para avaliar requisitos</h4>
+<p>O tipo de requisito que você vai precisar no seu projeto depende muito das características específicas do mesmo. No entanto, essas perguntas ajudam a ter uma ideia sobre quais requisitos são mais importantes e se a equipe não está esquecendo de nada.</p>
+<h4 id="checando-a-funcionalidade-dos-requisitos">Checando a funcionalidade dos requisitos</h4>
+<ul>
+<li>Todos os inputs estão especificados (origem, tipo, precisão, valores)?</li>
+<li>Todos os outputs estão especificados (destino, precisão, valores, formato)?</li>
+<li>As interfaces entre hardware e software estão especificadas?</li>
+<li>Todas as tarefas que o usuário pode realizar estão especificadas?</li>
+<li>Os dados necessários para cada tarefa e resultantes dela estão especificados?</li>
+</ul>
+<h4 id="checando-a-qualidade-dos-requisitos">Checando a qualidade dos requisitos</h4>
+<ul>
+<li>Os requisitos estão escritos na linguagem do usuário? Um jogador os entenderia?</li>
+<li>Cada requisito evita conflito com outros requisitos?</li>
+<li>Trocas entre requisitos que possam competir entre si estão especificadas?</li>
+<li>Os requisitos evitam definir um design específico?</li>
+<li>Todos os requisitos estão num nível consistente de detalhe? Alguns deveriam estar mais ou menos detalhados?</li>
+<li>Os requisitos estão claros o suficiente que poderiam ser entregues a outro grupo para serem construídos? </li>
+<li>Cada item é relevante à solução do problema? É possível traçar a origem de cada item em relação ao problema sendo resolvido?</li>
+<li>É possível testar cada requisito? Testes independentes serão capazes de verificar se cada item foi satisfeito?</li>
+<li>As possíveis mudanças aos requerimentos foram especificadas, incluindo a probabilidade de que ocorram?</li>
+</ul>
+<h4 id="checando-a-completude-dos-requisitos">Checando a completude dos requisitos</h4>
+<ul>
+<li>As informações que ainda não estão disponíveis no início do projeto estão marcadas?</li>
+<li>Se todos os requisitos forem satisfeitos, o produto será considerado completo?</li>
+<li>Você está confortável com todos os requisitos? Já foram eliminados requisitos que são impossíveis de implementar ou criados por motivos irrelevantes?</li>
+</ul>
+<h3 id="arquitetura">Arquitetura</h3>
+<p>A arquitetura de um software (ou de um sistema) refere-se a restrições e decisões que se aplicam ao sistema como um todo e não apenas partes dele. Ela provém a estrutura necessária para manter a integridade conceitual de um sistema desde os níveis mais altos até os mais baixos. Ela facilita a divisão de trabalho, permitindo que desenvolvedores trabalhem em paralelo e coletivamente.</p>
+<p>Esse é um tema multi-facetado e complexo, então vamos listar alguns dos componentes a serem considerados.</p>
+<h4 id="organizacao-do-programa">Organização do programa</h4>
+<p>Explica em termos amplos a organização interna do programa, assim como as justificativas para o mesmo, definindo os blocos principais de construção do programa. Também devem ser definidas as responsabilidades de cada bloco, de forma que todos os requisitos listados anteriormente devem estar cobertos.</p>
+<h4 id="principais-classes">Principais classes</h4>
+<p>A arquitetura deve identificar as principais classes a serem usadas e suas responsabilidades, assim como uma explicação da hierarquia de classes, transições e persistência de objetos. Ela não precisa especificar todas as classes do sistema, procure definir pelo menos os 20% mais importantes (que determinam 80% do comportamento do programa).</p>
+<h4 id="estruturas-e-design-de-dados">Estruturas e design de dados</h4>
+<p>A arquitetura deve também descrever as principais fontes de informação, a persistência dessa informação, quais blocos têm acesso a essa informação, mas mantendo-se numa descrição de alto nível. Dessa forma, a responsabilidade de realizar o design das características concretas do sistema ainda são dos desenvolvedores finais.</p>
+<h4 id="interface-de-usuario">Interface de usuário</h4>
+<p>A arquitetura deve especificar os principais elementos (ou conjuntos) presentes na interface do usuário. Se possível, deve especificar como tornar o sistema modularizado o suficiente para permitir alterações mais adiante e trocas de interface sem maiores problemas.</p>
+<h4 id="gerenciamento-de-recursos-e-performance">Gerenciamento de recursos e performance</h4>
+<p>A arquitetura deve delinear um plano para como lidar com as limitações de recursos, como memória, gráficos, canais de som e outros. Ela também deve prever estimativas de performance e justficativas para as mesmas. Essa definição deve ser clara o suficiente para evitar desperdício de trabalho mais adiante no processo.</p>
+<h4 id="escalabilidade-e-interoperabilidade">Escalabilidade e interoperabilidade</h4>
+<p>A arquitetura deve definir o quanto o sistema deve estar hábil a crescer de acordo com demandas futuras e como ralizá-lo (em um nível de especificação alto). Isso é fundamental quando pensamos em multijogador ou sistemas com bancos de dados. O mesmo vale para a capacidade do sistema de compartilhar dados e recursos com outras plataformas: quais serão essas e como o sistema irá fazê-lo devem ser descritos.</p>
+<h4 id="internacionalizacao">Internacionalização</h4>
+<p>É preciso descrever como o sistema vai lidar com a questão da localização e da internacionalização de seu conteúdo e interfaces. </p>
+<h4 id="processamento-de-erros-e-tolerancia">Processamento de erros e tolerância</h4>
+<p>A arquitetura também é responsável por definir como o programa vai tratar de erros em suas diversas partes, assim como qual será a abordagem assumida pelas classes e sistemas. </p>
+<ul>
+<li>O processamento de erros será corretivo ou apenas detecção?</li>
+<li>É uma detecção passiva ou ativa? O rpgroama vai tentar ativamente checar erros ou vai postergar essa checagem?</li>
+<li>Como o programa propaga erros? Ele trata localmente ou repassa para uma classe específica?</li>
+<li>Quais são as convenções a ser seguidas nas mensagens e tratamento de erros?</li>
+<li>Onde serão criadas <code>exceptions</code> e em que nível do programa serão os erros tratados?</li>
+<li>Qual é a responsabilidade de cada classe em relação a seus inputs e outputs?</li>
+<li>Serão criadas ferramentas próprias ou ferramentas do seu ambiente de desenvolvimento?</li>
+</ul>
+<h4 id="viabilidade-da-arquitetura">Viabilidade da arquitetura</h4>
+<p>A arquitetura deve demosntrar que o sistema é tecnicamente viável com os recursos existentes, ambientes de desenvolvimento e outras limitações do projeto. As alternativas e questões onde essa viabilidade está em risco devem ser justificadas e testadas através de protótipos, pesquisa e provas de conceito.</p>
+<h4 id="checando-a-qualidade-da-arquitetura">Checando a qualidade da arquitetura</h4>
+<ul>
+<li>A arquitetura cobre todos os requisitos?</li>
+<li>Alguma parte está sobre ou sub especificada?</li>
+<li>A arquitetura como um todo forma um conjunto conceitual?</li>
+<li>O design de alto nível é independente do hardware e software que vai construí-lo?</li>
+<li>As motivações de todas as grandes decisões estão explicadas?</li>
+<li>Você, como programador, está confortável com a arquitetura que vai implementar?</li>
+</ul>
+<h3 id="processo-de-design-de-software">Processo de design de software</h3>
+<p><img alt="Diagrama do processo de design de software" src="http://i.imgur.com/TpU3p2I.png" /></p>
+<p>A estrutura básica dese processo é:</p>
+<ol>
+<li>Sistema de software: visão mais macro do projeto</li>
+<li>Divisão em susbsistemas e pacotes</li>
+<li>Divisão em classes</li>
+<li>Divisão em rotinas / funções</li>
+<li>Design interno nas funções</li>
+</ol>
+<p>Algumas heurísticas a serem consideradas:</p>
+<ul>
+<li>Encontrar objetos do mundo real</li>
+<li>Construir abstrações consistentes</li>
+<li>Encapsular detalhes de implementação</li>
+<li>Herdar quando possível</li>
+<li>Esconder segredos</li>
+<li>Identificar áreas que provavelmente vão mudar</li>
+<li>Manter os elos fracos</li>
+<li>Procure padrões de projeto recorrentes</li>
+</ul>
+<p>Na hora de formalizar esse tipo de design (especialmente a parte relativa a classes) é bastante útil a convenção de <a href="https://en.wikipedia.org/wiki/Class_diagram">diagramas de classe UML</a>, que especifica diferentes relações entre classes e suas representações gráficas. Para criar esse tipo de diagrama numa versão mais legível que a manual (como um refino posterior, por exemplo) pode-se usar a ferramenta online <a href="http://draw.io">draw.io</a>.</p>
+<hr />
+<h3 id="referencias">Referências</h3>
+<p>MCCONNELL, S. <strong>Code Complete: A Practical Handbook of Software Construction</strong>. 2 ed. Redmond, Wash: Microsoft Press, 2004.</p></div>
+        </div>
+
+	<footer class="col-md-12">
+		<hr>
+		
+		<p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+	</footer>
+
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+        <script src="../../js/extra.js"></script>
+    </body>
+</html>
