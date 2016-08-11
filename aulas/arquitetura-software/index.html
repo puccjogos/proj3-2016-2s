@@ -119,7 +119,7 @@
         
             <li><a href="#arquitetura">Arquitetura</a></li>
         
-            <li><a href="#processo-de-design-de-software">Processo de design de software</a></li>
+            <li><a href="#processo-de-design-de-software-c4">Processo de design de software (C4)</a></li>
         
             <li><a href="#referencias">Referências</a></li>
         
@@ -199,17 +199,22 @@
 <li>As motivações de todas as grandes decisões estão explicadas?</li>
 <li>Você, como programador, está confortável com a arquitetura que vai implementar?</li>
 </ul>
-<h3 id="processo-de-design-de-software">Processo de design de software</h3>
-<p><img alt="Diagrama do processo de design de software" src="http://i.imgur.com/TpU3p2I.png" /></p>
-<p>A estrutura básica dese processo é:</p>
+<h3 id="processo-de-design-de-software-c4">Processo de design de software (C4)</h3>
+<p><img alt="Diagrama do processo de design de software C4" src="../../imgs/diagramas-c4.png" /></p>
+<p>A estrutura básica desse processo (que pode ser chamado de C4, como definido por Brown (2015)) é:</p>
 <ol>
-<li>Sistema de software: visão mais macro do projeto</li>
-<li>Divisão em susbsistemas e pacotes</li>
-<li>Divisão em classes</li>
+<li>Contexto: onde o sistema está loxalizado, em relação a usuários e outros sistemas</li>
+<li>Containers: diferentes executáveis e processos, bancos de dados e entidades dentro do sistema</li>
+<li>Componentes: diferentes subsistemas com preocupações bem demarcadas e que se comunicam entre si</li>
+<li>Classes: divisão em classes, focando primeiro em sua interface pública e depois nas suas partes privadas<ol>
 <li>Divisão em rotinas / funções</li>
 <li>Design interno nas funções</li>
 </ol>
-<p>Algumas heurísticas a serem consideradas:</p>
+</li>
+</ol>
+<p>Cada etapa tem um foco diferente e escopos diferentes. Enquanto as duas primeiras mostram o sistema como um todo, a parte de componentes é um recorte com mais informações e detalhes mais refinados devem aparecer apenas na definição de classes. É comum já incluir anotações sobre responsabilidades de cada elemento e as tecnologias envolvidas o quanto antes (normalmente a partir da eta de containers).</p>
+<p><img alt="Escopo de cada tipo de diagrama de design de software C4" src="../../imgs/foco-c4.png" /></p>
+<p>Algumas heurísticas a serem consideradas nesse processo:</p>
 <ul>
 <li>Encontrar objetos do mundo real</li>
 <li>Construir abstrações consistentes</li>
@@ -223,6 +228,7 @@
 <p>Na hora de formalizar esse tipo de design (especialmente a parte relativa a classes) é bastante útil a convenção de <a href="https://en.wikipedia.org/wiki/Class_diagram">diagramas de classe UML</a>, que especifica diferentes relações entre classes e suas representações gráficas. Para criar esse tipo de diagrama numa versão mais legível que a manual (como um refino posterior, por exemplo) pode-se usar a ferramenta online <a href="http://draw.io">draw.io</a>.</p>
 <hr />
 <h3 id="referencias">Referências</h3>
+<p>BROWN, S. <strong>Software Architecture for Developers.</strong> [s.l.] LeanPub, 2015. </p>
 <p>MCCONNELL, S. <strong>Code Complete: A Practical Handbook of Software Construction</strong>. 2 ed. Redmond, Wash: Microsoft Press, 2004.</p></div>
         </div>
 
