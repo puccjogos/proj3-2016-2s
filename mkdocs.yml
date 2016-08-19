@@ -1,6 +1,9 @@
 site_name: Proj3 - 2016 - 2S
 pages:
   - Home: 'index.md'
+  - Aulas :
+    - 'Introdução ao Projeto Integrado 3' : 'aulas/introd-proj3.md '
+    - 'Introdução à arquitetura de software' : 'aulas/arquitetura-software.md'
   - 'Referências': 'referencias.md'
 theme: bootstrap
 extra_css:

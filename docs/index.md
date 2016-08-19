@@ -8,11 +8,11 @@ Este site é a apostila digital da disciplina *Projeto integrado 3*, ministrada 
 
 | Data  | Conteúdo                                                     | 
 |-------|--------------------------------------------------------------| 
-| 03/08 | Apresentação da disciplina e enunciado de projeto            | 
-| 10/08 | Divisão de grupos / [Arquitetura de software]()              | 
+| 03/08 | [Introdução ao Projeto Integrado 3](aulas/introd-proj3)             | 
+| 10/08 | Divisão de grupos / [Introdução à arquitetura de software](aulas/arquitetura-software)              | 
 | 17/08 | Apresentação de conceitos / [Introdução ao game design 3D]() | 
 | 24/08 | Playtest 1 (protótipos)                                      | 
-| 31/08 | [Greenlight de projetos]()                                       | 
+| 31/08 | [Greenlight de projetos]()                                   | 
 | 07/09 | *Feriado*                                                    | 
 | 14/09 | *Semana Integrada*                                           | 
 | 21/09 | [Versionamento e controle de qualidade]()                    | 
