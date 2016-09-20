@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../imgs/shuffling.gif">
+        
+
+	<title>Versionamento e controle de qualdiade - Proj3 - 2016 - 2S</title>
+
+        <link href="../../css/bootstrap-3.0.3.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Proj3 - 2016 - 2S</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Aulas <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../introd-proj3/">Introdução ao Projeto Integrado 3</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../arquitetura-software/">Introdução à arquitetura de software</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">Versionamento e controle de qualdiade</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../referencias/">Referências</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../arquitetura-software/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../referencias/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/puccjogos/proj3-2016-2s">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#versionamento-e-controle-de-qualidade">Versionamento e controle de qualidade</a></li>
+        
+            <li><a href="#versionamento-semantico">Versionamento semântico</a></li>
+        
+            <li><a href="#gerenciamento-de-versoes-e-git">Gerenciamento de versões e Git</a></li>
+        
+            <li><a href="#controle-de-qualidade">Controle de qualidade</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="versionamento-e-controle-de-qualidade">Versionamento e controle de qualidade</h1>
+<h2 id="versionamento-semantico">Versionamento semântico</h2>
+<p>Um dos maiores problemas no desenvolvimento de projetos é o controle das diferentes versões envolvidas. Para isso, muitas vezes utilizamos versões numéricas,mas cujos números não tem um significado muito claro, o que pode gerar confusão e problemas de processo variados.</p>
+<p>Para organizar esse processo, foi criado o conceito de <a href="http://semver.org/lang/pt-BR/">versionamento semântico</a>. Esse conceito defende o seguinte:</p>
+<blockquote>
+<p>Dado um número de versão MAJOR.MINOR.PATCH, incremente a:</p>
+<ul>
+<li>versão Maior(MAJOR): quando fizer mudanças incompatíveis na API,</li>
+<li>versão Menor(MINOR): quando adicionar funcionalidades mantendo compatibilidade, e</li>
+<li>versão de Correção(PATCH): quando corrigir falhas mantendo compatibilidade.</li>
+</ul>
+<p>Rótulos adicionais para pré-lançamento(pre-release) e metadados de construção(build) estão disponíveis como extensão ao formato MAJOR.MINOR.PATCH.</p>
+</blockquote>
+<p>Dessa forma, está visível a compatibilidade de diferentes versões de software apenas de se olhar o número das versões. Esse é o principal benefício dessa metodologia. Quanto aplicada a projetos de games, podemos interpretá-la da seguinte maneira:</p>
+<ul>
+<li><strong>MAJOR</strong> como um grande milestone do projeto (alfa, beta, gold, updates-dlc);</li>
+<li><strong>MINOR</strong> novas funcionalidades e correções de bugs grandes;</li>
+<li><strong>PATCH</strong> correções de bugs e alterações pequenas em features existentes.</li>
+</ul>
+<p>Versões também podem ser <em>fixadas</em> para uso posterior utilizando a ideia de <strong>tags ou releases</strong> presentes em sistemas de gerenciamento de versão como Git.</p>
+<p><img alt="" src="../../imgs/tags-github.jpg" /></p>
+<p><em>Exemplo da tela de releases do GitHub.</em></p>
+<h2 id="gerenciamento-de-versoes-e-git">Gerenciamento de versões e Git</h2>
+<p>O uso de sistemas de versionamento e controle de código é fundamental no desenvolvimento de software. Alguns tipos principais são Git, Mercurial e SVN. Vamos falar sobre Git.</p>
+<p>Esse tipo de controle de repositório (o que seria o seu projeto) é utilizado por muitas ferrametnas externas, como por exemplo o <a href="https://unity3d.com/pt/services/cloud-build">Cloud Build da Unity</a>, como fonte para serviços de compilação e distribuição automática para teste. Saber utilizar um repositório é requisito básico para poder utilizar essas ferramentas de forma efetiva.</p>
+<h3 id="exemplo-online-interativo">Exemplo online interativo</h3>
+<p>Clique aqui para acessar o <a href="https://try.github.io/">https://try.github.io/</a>. Vamos seguir esse tutorial por algumas etapas.</p>
+<h3 id="arquivos-a-ignorar">Arquivos a ignorar</h3>
+<p>Em uma pasta de projeto que está sendo versionada é comum querer ignorar alguns arquivos que não são necessários para definir o projeto ou que serão gerados automaticamente pela máquina de cada usuário. Isso é definido em um arquivo de ignore. No caso do git, ele se chama <code>.gitignore</code>.</p>
+<p>Abaixo, um exemplo de <code>.gitignore</code> para uso em um repositório com múltiplos projetos da Unity. Repare na inclusão de todos os arquivos <code>.meta</code> e na exclusão das pastas <code>Temp</code>, <code>Library</code> e <code>Obj</code>.</p>
+<pre><code>**[Ll]ibrary/
+**[Tt]emp/
+**[Oo]bj/
+
+# Autogenerated VS/MD solution and project files
+**.csproj
+**.unityproj
+**.sln
+**.apk
+**.sln.DotSettings.user
+**.suo
+**.userprefs
+**.pidb
+
+# include meta files
+!**.meta
+</code></pre>
+
+<h2 id="controle-de-qualidade">Controle de qualidade</h2>
+<p>Quando o projeto alcança determinados milestones, ou etapas significativas, é importante realizar uma rodada de testes. Esse esforço em testar funcionalmente jogo torna-se cada vez mais importante conforme o projeto avança em seu ciclo de vida. </p>
+<p>Durante testes, é importante informar corretamente sobre bugs encontrados. É fundamental que sejam colhidas informações sobre a repetibilidade (como fazer para reproduzir o bug), contexto (máquina, sistema operacional, situação de uso) e os efeitos do bug no jogo (glitches visuais, erros lógicos, danos ao gameplay). Essas informações facilitam a correção do bug e permitem uma priorização correta dos esforços de programação.</p>
+<p>Com os bugs coletados, é importante priorizá-los de forma a garantir que os bugs mais graves serão corrigidos primeiro. Para realizar essa priorização e classificar os bugs corretamente, alguns critérios são bastante utilizados:</p>
+<ul>
+<li><strong>Área</strong> do projeto (arte, programação, som, etc)</li>
+<li><strong>Etapa</strong> / milestone (quando deve estar corrigido)</li>
+<li><strong>Gravidade</strong>, dividida em:<ul>
+<li><em>Crítico</em>: quebra o jogo e impede que o jogador termine o que estava fazendo.</li>
+<li><em>Major</em>: algum problema recorrente e grave, mas que não quebra o jogo. O jogo não pode ser finalizado com qualquer um desses bugs.</li>
+<li><em>Minor</em>: algum problema menor que pode ser corrigido em versões futuras sem maior impacto ou com frequência baixa.</li>
+</ul>
+</li>
+</ul>
+<p>Uma ferramenta bastante utilizada para realizar esse controle é o sistema de issues do GitHub, que permite a criação de novos tickets com informações sobre bugs e problemas, além de integrá-los em ferramentas de controle de etapa (milestones) e um sistema de projetos semelhante a um mural de SCRUM / Trello.</p>
+<p><img alt="" src="../../imgs/issues.png" /></p></div>
+        </div>
+
+	<footer class="col-md-12">
+		<hr>
+		
+		<p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+	</footer>
+
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+        <script src="../../js/extra.js"></script>
+    </body>
+</html>
