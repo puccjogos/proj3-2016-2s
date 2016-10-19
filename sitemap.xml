@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-09-20</lastmod>
+     <lastmod>2016-10-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,19 +13,25 @@
         
     <url>
      <loc>None/aulas/introd-proj3/</loc>
-     <lastmod>2016-09-20</lastmod>
+     <lastmod>2016-10-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/aulas/arquitetura-software/</loc>
-     <lastmod>2016-09-20</lastmod>
+     <lastmod>2016-10-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/aulas/versionamento/</loc>
-     <lastmod>2016-09-20</lastmod>
+     <lastmod>2016-10-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/aulas/camera-3d/</loc>
+     <lastmod>2016-10-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -34,7 +40,7 @@
     
     <url>
      <loc>None/referencias/</loc>
-     <lastmod>2016-09-20</lastmod>
+     <lastmod>2016-10-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

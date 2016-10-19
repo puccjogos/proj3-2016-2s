@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{1B10BAF5-13F6-EFA4-0EA7-AEF8BF3FA047}") = "Camera3D", "Assembly-CSharp.csproj", "{0A882621-A10D-6BEB-10C7-A9838FA28B5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A882621-A10D-6BEB-10C7-A9838FA28B5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A882621-A10D-6BEB-10C7-A9838FA28B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A882621-A10D-6BEB-10C7-A9838FA28B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A882621-A10D-6BEB-10C7-A9838FA28B5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
