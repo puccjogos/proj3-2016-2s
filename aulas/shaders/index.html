@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../imgs/shuffling.gif">
+        
+
+	<title>Shaders - Proj3 - 2016 - 2S</title>
+
+        <link href="../../css/bootstrap-3.0.3.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Proj3 - 2016 - 2S</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Aulas <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../introd-proj3/">Introdução ao Projeto Integrado 3</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../arquitetura-software/">Introdução à arquitetura de software</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../versionamento/">Versionamento e controle de qualidade</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../camera-3d/">Câmeras 3D</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">Shaders</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../referencias/">Referências</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../camera-3d/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../referencias/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/puccjogos/proj3-2016-2s">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#shaders">Shaders</a></li>
+        
+            <li><a href="#shader-branco">Shader branco</a></li>
+        
+            <li><a href="#shader-de-textura">Shader de textura</a></li>
+        
+            <li><a href="#efeitos-de-imagem">Efeitos de imagem</a></li>
+        
+            <li><a href="#por-que-usar-shaders">Por que usar shaders?</a></li>
+        
+            <li><a href="#referencias">Referências</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="shaders">Shaders</h1>
+<p><img alt="" src="../../imgs/shader.gif" /></p>
+<p><em>Exemplo de shader de animação por deslocamento.</em></p>
+<p><a href="../../materiais/Shaders.zip">Os exemplos utilizados nesta aula estão neste link</a>.</p>
+<p>De forma básica, shaders são programas que recebem informações sobre o estado do mundo do jogo e desenham uma imagem baseada nessas informações. Isso acontece na etapa de <em>render</em> do <em>gameloop</em>. Shaders, então, podem servir tanto para processar informações sobre um jogo 2D quanto 3D, dependendo do caso.</p>
+<p>Existem duas etapas básicas de processamento em shaders 3D: <em>vertex shaders</em> e <em>fragment shaders</em>. Os <em>vertex shaders</em> recebem informações sobre cada vértice de uma mesh 3D e a convertem em um conjunto de fragments dependendo do quanto a geometria definida pelos vértices está visível. Um <em>fragment shader</em> recebe esses fragmentos e os processa até chegar na cor de cada pixel que deve aparecer na tela.</p>
+<p>Na Unity, também é possível definir <em>surface shaders</em>, que são basicamente uma forma de criar vertex e fragment shaders automáticos para facilitar a criação de efeitos mais avançados em shaders 3D. Para ter uma ideia melhor desses shaders, <a href="https://docs.unity3d.com/Manual/SL-SurfaceShaderExamples.html">vale a pena estudar estes exemplos no link</a>.</p>
+<h3 id="shader-branco">Shader branco</h3>
+<pre><code class="opengl">Shader &quot;Exemplos/Básico&quot;
+{
+    SubShader
+    {
+        Tags
+        {
+            &quot;PreviewType&quot; = &quot;Plane&quot;
+        }
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+
+            #include &quot;UnityCG.cginc&quot;
+
+            struct appdata
+            {
+                float4 vertex : POSITION;
+            };
+
+            struct v2f
+            {
+                float4 vertex : SV_POSITION;
+            };
+
+            v2f vert(appdata v)
+            {
+                v2f o;
+                o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+                return o;
+            }
+
+            float4 frag(v2f i) : SV_Target
+            {
+                float4 color = float4(1,1,1,1);
+                return color;
+            }
+            ENDCG
+        }
+    }
+}
+</code></pre>
+
+<h3 id="shader-de-textura">Shader de textura</h3>
+<pre><code class="opengl">Shader &quot;Exemplos/Textura simples&quot;
+{
+    Properties
+    {
+        _MainTex(&quot;Texture&quot;, 2D) = &quot;white&quot; {}
+    }
+
+    SubShader
+    {
+        Tags
+        {
+            &quot;PreviewType&quot; = &quot;Plane&quot;
+        }
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+
+            #include &quot;UnityCG.cginc&quot;
+
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+            };
+
+            struct v2f
+            {
+                float4 vertex : SV_POSITION;
+                float2 uv : TEXCOORD0;
+            };
+
+            v2f vert(appdata v)
+            {
+                v2f o;
+                o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.uv = v.uv;
+                return o;
+            }
+
+            sampler2D _MainTex;
+
+            float4 frag(v2f i) : SV_Target
+            {
+                float4 color = tex2D(_MainTex, i.uv);
+                return color;
+            }
+            ENDCG
+        }
+    }
+}
+
+</code></pre>
+
+<h2 id="efeitos-de-imagem">Efeitos de imagem</h2>
+<p>Efeitos de imagem funcionam como shaders que são aplicados à imagem que está sendo renderizada pela câmera, ao invés de processar a aparência de cada objeto de forma separada. Podemos pensar nesse tipo de efeito como um filtro de processamento de imagem em tempo real, parecido com o que encontramos em softwares como After Effects ou Photoshop. Pro trás dos panos, é como se a engine estivesse criando um grande quad com a iamgem do frame atual do jogo e esse quad é passado para a função <code>OnRenderImage( RenderTexture src, RenderTexture dst)</code>. A estrutura básica de um efeito de imagem está representada abaixo.</p>
+<pre><code class="csharp">using UnityEngine;
+
+// para poder ver os resultados no editor
+[ExecuteInEditMode]
+public class EfeitoDeImagemBasico : MonoBehaviour {
+
+    // material com o shader e infos para o efeito
+    public Material material;
+
+    void OnRenderImage(RenderTexture src, RenderTexture dst) {
+
+        // chamada que copia os pixels da origem no destino
+        Graphics.Blit(src, dst, material);
+    }
+}
+</code></pre>
+
+<h2 id="por-que-usar-shaders">Por que usar shaders?</h2>
+<p>Shaders, quando utilizados em objetos ou como efeitos de imagem, podem criar muita flexibilidade e dinamismo para a estética visual de seu jogo. Coisas como animação procedural (veja o exemplo no topo da página), criar variedade para um asset, aplicar uma <a href="https://youtu.be/u4Iz5AJa31Q">paleta de cores</a> ou mostrar o efeito de uma <a href="https://youtu.be/C6lGEgcHbWc">interação com o jogador</a> podem ser alcançadas utilizando shaders. Em conjunto com a criação de modelos e texturas, essa ferramenta pode ajudar a criar um estilo visual mais elaborado e consistente para seu jogo.</p>
+<h2 id="referencias">Referências</h2>
+<ul>
+<li>O canal <a href="https://www.youtube.com/channel/UCEklP9iLcpExB8vp_fWQseg">Makin&rsquo; Stuff Look Good in Unity</a> tem ótimos tutoriais em vídeo sobre shaders e partículas. Vale a pena dar uma fuçada e extrapolar a partir dos exemplos.</li>
+<li>No site <a href="http://catlikecoding.com/unity/tutorials/rendering/part-2/">Catlike Coding</a> você pode encontrar tutoriais mais avançados sobre uma série de assuntos relacionados à computação gráfica e shaders.</li>
+</ul></div>
+        </div>
+
+	<footer class="col-md-12">
+		<hr>
+		
+		<p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+	</footer>
+
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+        <script src="../../js/extra.js"></script>
+    </body>
+</html>
